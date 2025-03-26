@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WellnessHealthcare BD</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <link rel="icon" href="mainlogo.jpg" type="image/icon type">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo" data-page="home">WellnessHealthcare BD</a>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#" data-page="home" class="active">Home</a></li>
+                    <li><a href="#" data-page="features">Features</a></li>
+                    <li><a href="#" data-page="solutions">Solutions</a></li>
+                    <li><a href="#" data-page="pricing">Pricing</a></li>
+                    <li><a href="#" data-page="blog">Blog</a></li>
+                    <li><a href="#" data-page="about">About Us</a></li>
+                    <li><a href="#" data-page="contact">Contact</a></li>
+                    <li><a href="#" class="btn btn-primary">Try for Free</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Pages -->
+    <main>
+        <!-- Home Page -->
+        <section class="page active" id="home">
+            <!-- Hero Section -->
+            <section class="hero" style="background-image: url('background1.jpg');">
+                <div class="container">
+                    <h1>Comprehensive Healthcare Management System</h1>
+                    <p>Streamline your healthcare operations with our all-in-one solution for patient management,
+                        appointments, billing, and more.</p>
+                    <div class="hero-buttons">
+                        <a href="#" class="btn btn-primary">Get Started</a>
+                        <a href="#" class="btn btn-secondary">Request Demo</a>
+                    </div>
+                </div>
+            </section>
+            <style>
+                .hero {
+                    /* Background properties */
+                    background-size: cover;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    
+                    /* Additional styling to ensure content is readable */
+                    color: white; /* Change text color if needed */
+                    padding: 100px 0; /* Adjust padding as needed */
+                    position: relative;
+                }
+                .hero .container {
+                    position: relative;
+                    z-index: 1;
+                }
+            </style>
+
+            <!-- Features Preview Section -->
+            <section class="section-padding">
+                <div class="container">
+                    <div class="section-title">
+                        <h2>Key Features</h2>
+                        <p>Everything you need to manage your healthcare facility efficiently</p>
+                    </div>
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-calendar-check"></i>
+                            </div>
+                            <h3>Appointment Scheduling</h3>
+                            <p>Easy online booking and management of patient appointments with automated reminders.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-user-injured"></i>
+                            </div>
+                            <h3>Patient Management</h3>
+                            <p>Comprehensive patient records with medical history, treatments, and prescriptions.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-file-invoice-dollar"></i>
+                            </div>
+                            <h3>Billing & Invoicing</h3>
+                            <p>Automated billing system with insurance claim processing and payment tracking.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CTA Section -->
+            <section class="cta">
+                <div class="container">
+                    <h2>Ready to transform your healthcare practice?</h2>
+                    <p>Join thousands of healthcare providers who trust H-Care for their practice management.</p>
+                    <a href="#" class="btn btn-secondary">Start Free Trial</a>
+                </div>
+            </section>
+        </section>
+
+        <!-- Features Page -->
+        <section class="page" id="features">
+            <section class="hero">
+                <div class="container">
+                    <h1>Powerful Features Designed for Healthcare</h1>
+                    <p>Discover how H-Care can streamline your operations and improve patient care.</p>
+                </div>
+            </section>
+
+            <section class="section-padding">
+                <div class="container">
+                    <div class="feature-detail">
+                        <img src="https://via.placeholder.com/400x300?text=Appointment+Scheduling"
+                            alt="Appointment Scheduling">
+                        <div class="feature-content">
+                            <h3>Appointment Management</h3>
+                            <p>Our intuitive scheduling system helps you manage patient appointments with ease, reducing
+                                no-shows and optimizing your workflow.</p>
+                            <ul>
+                                <li>Online booking portal for patients</li>
+                                <li>Automated SMS and email reminders</li>
+                                <li>Calendar synchronization</li>
+                                <li>Waitlist management</li>
+                                <li>Resource allocation</li>
+                            </ul>
+                            <a href="#" class="btn btn-outline">Learn More</a>
+                        </div>
+                    </div>
+
+                    <div class="feature-detail reverse">
+                        <img src="https://via.placeholder.com/400x300?text=Patient+Records" alt="Patient Records">
+                        <div class="feature-content">
+                            <h3>Electronic Health Records</h3>
+                            <p>Comprehensive patient records that follow healthcare standards, ensuring complete and
+                                secure documentation.</p>
+                            <ul>
+                                <li>Customizable templates</li>
+                                <li>Medical history tracking</li>
+                                <li>Prescription management</li>
+                                <li>Lab results integration</li>
+                                <li>HIPAA compliant</li>
+                            </ul>
+                            <a href="#" class="btn btn-outline">Learn More</a>
+                        </div>
+                    </div>
+
+                    <div class="feature-detail">
+                        <img src="https://via.placeholder.com/400x300?text=Billing+System" alt="Billing System">
+                        <div class="feature-content">
+                            <h3>Billing & Insurance</h3>
+                            <p>Streamline your financial operations with our integrated billing and insurance claims
+                                processing.</p>
+                            <ul>
+                                <li>Automated claim generation</li>
+                                <li>Real-time eligibility verification</li>
+                                <li>Payment processing</li>
+                                <li>Financial reporting</li>
+                                <li>Multi-payer support</li>
+                            </ul>
+                            <a href="#" class="btn btn-outline">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+        <!-- Solutions Page -->
+        <section class="page" id="solutions">
+            <section class="hero">
+                <div class="container">
+                    <h1>Solutions for Every Healthcare Provider</h1>
+                    <p>Customized solutions designed for different healthcare settings and specialties.</p>
+                </div>
+            </section>
+
+            <section class="section-padding">
+                <div class="container">
+                    <div class="solutions-tabs" id="solutionTabs">
+                        <button class="tab-btn active" data-tab="clinics">Clinics</button>
+                        <button class="tab-btn" data-tab="hospitals">Hospitals</button>
+                        <button class="tab-btn" data-tab="specialists">Specialists</button>
+                        <button class="tab-btn" data-tab="labs">Diagnostic Labs</button>
+                    </div>
+
+                    <div class="tab-content active" id="clinics">
+                        <div class="solution-card">
+                            <h3>For Primary Care Clinics</h3>
+                            <p>Our comprehensive solution helps primary care providers manage their daily operations
+                                efficiently while focusing on patient care.</p>
+                            <ul>
+                                <li>Streamlined patient flow management</li>
+                                <li>Integrated preventive care tracking</li>
+                                <li>Chronic disease management tools</li>
+                                <li>Vaccination scheduling and tracking</li>
+                                <li>Referral management</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="tab-content" id="hospitals">
+                        <div class="solution-card">
+                            <h3>For Hospitals</h3>
+                            <p>Enterprise-level solution designed to meet the complex needs of hospital systems and
+                                large healthcare facilities.</p>
+                            <ul>
+                                <li>Department-specific workflows</li>
+                                <li>Bed management and patient tracking</li>
+                                <li>Operating room scheduling</li>
+                                <li>Inter-departmental communication</li>
+                                <li>Enterprise reporting</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="tab-content" id="specialists">
+                        <div class="solution-card">
+                            <h3>For Specialists</h3>
+                            <p>Specialty-specific solutions with tailored features for various medical specialties.</p>
+                            <ul>
+                                <li>Specialty-specific templates (cardiology, dermatology, etc.)</li>
+                                <li>Procedure documentation</li>
+                                <li>Referral coordination</li>
+                                <li>Advanced imaging integration</li>
+                                <li>Procedure scheduling</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="tab-content" id="labs">
+                        <div class="solution-card">
+                            <h3>For Diagnostic Labs</h3>
+                            <p>Comprehensive laboratory information system that integrates seamlessly with healthcare
+                                providers.</p>
+                            <ul>
+                                <li>Test order management</li>
+                                <li>Result reporting</li>
+                                <li>Quality control tracking</li>
+                                <li>Equipment maintenance logs</li>
+                                <li>HL7 integration</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+        <!-- Pricing Page -->
+        <section class="page" id="pricing">
+            <section class="hero">
+                <div class="container">
+                    <h1>Simple, Transparent Pricing</h1>
+                    <p>Choose the plan that fits your practice size and needs.</p>
+                </div>
+            </section>
+
+            <section class="section-padding">
+                <div class="container">
+                    <div class="pricing-plans">
+                        <div class="pricing-card">
+                            <h3>Basic</h3>
+                            <p>For small practices and solo practitioners</p>
+                            <div class="price">$99<span>/month</span></div>
+                            <ul class="pricing-features">
+                                <li>Up to 5 users</li>
+                                <li>Appointment scheduling</li>
+                                <li>Patient records</li>
+                                <li>Basic reporting</li>
+                                <li>Email support</li>
+                            </ul>
+                            <a href="#" class="btn btn-outline">Get Started</a>
+                        </div>
+
+                        <div class="pricing-card popular">
+                            <div class="popular-tag">Most Popular</div>
+                            <h3>Professional</h3>
+                            <p>For growing practices and multi-specialty clinics</p>
+                            <div class="price">$199<span>/month</span></div>
+                            <ul class="pricing-features">
+                                <li>Up to 15 users</li>
+                                <li>All Basic features</li>
+                                <li>Billing & insurance</li>
+                                <li>Advanced reporting</li>
+                                <li>Phone & email support</li>
+                                <li>E-prescribing</li>
+                            </ul>
+                            <a href="#" class="btn btn-primary">Get Started</a>
+                        </div>
+
+                        <div class="pricing-card">
+                            <h3>Enterprise</h3>
+                            <p>For hospitals and large healthcare systems</p>
+                            <div class="price">Custom</div>
+                            <ul class="pricing-features">
+                                <li>Unlimited users</li>
+                                <li>All Professional features</li>
+                                <li>Multi-location support</li>
+                                <li>Custom integrations</li>
+                                <li>Priority support</li>
+                                <li>Dedicated account manager</li>
+                            </ul>
+                            <a href="#" class="btn btn-outline">Contact Sales</a>
+                        </div>
+                    </div>
+
+                    <div class="text-center" style="margin-top: 50px;">
+                        <p>Not sure which plan is right for you? <a href="#" data-page="contact">Contact our team</a>
+                            for a personalized recommendation.</p>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+        <!-- Contact Page -->
+        <section class="page" id="contact">
+            <section class="hero">
+                <div class="container">
+                    <h1>Get in Touch</h1>
+                    <p>We'd love to hear from you. Contact us for questions, demos, or support.</p>
+                </div>
+            </section>
+
+            <section class="section-padding">
+                <div class="container">
+                    <div class="contact-container">
+                        <div class="contact-info">
+                            <h3>Contact Information</h3>
+                            <p>Fill out the form or reach out to us directly through the contact details below.</p>
+
+                            <div class="contact-details">
+                                <div class="contact-item">
+                                    <div class="contact-icon">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                    </div>
+                                    <div>
+                                        <h4>Address</h4>
+                                        <p>123 Healthcare St, Medical District, City, Country</p>
+                                    </div>
+                                </div>
+
+                                <div class="contact-item">
+                                    <div class="contact-icon">
+                                        <i class="fas fa-phone-alt"></i>
+                                    </div>
+                                    <div>
+                                        <h4>Phone</h4>
+                                        <p>+1 (555) 123-4567</p>
+                                    </div>
+                                </div>
+
+                                <div class="contact-item">
+                                    <div class="contact-icon">
+                                        <i class="fas fa-envelope"></i>
+                                    </div>
+                                    <div>
+                                        <h4>Email</h4>
+                                        <p>info@h-care.com</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="social-links">
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+
+                        <div class="contact-form">
+                            <h3>Send Us a Message</h3>
+                            <form id="contactForm">
+                                <div class="form-group">
+                                    <label for="name">Your Name</label>
+                                    <input type="text" id="name" class="form-control" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="email">Email Address</label>
+                                    <input type="email" id="email" class="form-control" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="subject">Subject</label>
+                                    <input type="text" id="subject" class="form-control" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="message">Message</label>
+                                    <textarea id="message" class="form-control" required></textarea>
+                                </div>
+
+                                <button type="submit" class="btn btn-primary">Send Message</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+    </main>
+
+
+
+
+    <!-- About Us Page -->
+    <section class="page" id="about">
+        <section class="hero">
+            <div class="container">
+                <h1>About H-Care</h1>
+                <p>Our mission to revolutionize healthcare management</p>
+            </div>
+        </section>
+
+        <section class="section-padding footer-page">
+            <div class="container">
+                <h2>Our Story</h2>
+                <p>Founded in 2015, H-Care began with a simple vision: to create software that makes healthcare
+                    administration seamless so practitioners can focus on what matters most - patient care.</p>
+
+                <h2>Our Team</h2>
+                <p>We're a diverse team of healthcare professionals, software engineers, and UX designers committed to
+                    building the best healthcare management platform.</p>
+
+                <div class="features-grid" style="margin-top:40px;">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-heartbeat"></i>
+                        </div>
+                        <h3>Healthcare Expertise</h3>
+                        <p>Our clinical advisors ensure our solutions meet real-world needs.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <h3>Technical Excellence</h3>
+                        <p>Built with the latest technologies for reliability and security.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-hand-holding-heart"></i>
+                        </div>
+                        <h3>Patient-Centered</h3>
+                        <p>Everything we do ultimately serves better patient outcomes.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <!-- Careers Page -->
+    <section class="page" id="careers">
+        <section class="hero">
+            <div class="container">
+                <h1>Join Our Team</h1>
+                <p>Help us build the future of healthcare technology</p>
+            </div>
+        </section>
+
+        <section class="section-padding footer-page">
+            <div class="container">
+                <h2>Current Openings</h2>
+
+                <div class="solution-card" style="margin-bottom:20px;">
+                    <h3>Frontend Developer</h3>
+                    <p><strong>Location:</strong> Remote | <strong>Department:</strong> Engineering</p>
+                    <p>We're looking for an experienced React developer to help build our patient portal interface.</p>
+                    <a href="#" class="btn btn-outline" style="margin-top:15px;">Apply Now</a>
+                </div>
+
+                <div class="solution-card" style="margin-bottom:20px;">
+                    <h3>Healthcare UX Designer</h3>
+                    <p><strong>Location:</strong> San Francisco | <strong>Department:</strong> Design</p>
+                    <p>Help us create intuitive interfaces for complex healthcare workflows.</p>
+                    <a href="#" class="btn btn-outline" style="margin-top:15px;">Apply Now</a>
+                </div>
+
+                <div class="solution-card">
+                    <h3>Implementation Specialist</h3>
+                    <p><strong>Location:</strong> Chicago | <strong>Department:</strong> Customer Success</p>
+                    <p>Guide new customers through onboarding and training.</p>
+                    <a href="#" class="btn btn-outline" style="margin-top:15px;">Apply Now</a>
+                </div>
+
+                <h2 style="margin-top:50px;">Why Work With Us?</h2>
+                <ul>
+                    <li>Competitive salaries and equity options</li>
+                    <li>Flexible work arrangements</li>
+                    <li>Healthcare benefits (of course!)</li>
+                    <li>Opportunity to make a real impact in healthcare</li>
+                </ul>
+            </div>
+        </section>
+    </section>
+
+    <!-- Blog Page -->
+    <section class="page" id="blog">
+        <section class="hero">
+            <div class="container">
+                <h1>H-Care Blog</h1>
+                <p>Insights on healthcare technology and practice management</p>
+            </div>
+        </section>
+
+        <section class="section-padding footer-page">
+            <div class="container">
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <img src="https://via.placeholder.com/300x200?text=Telehealth" alt="Telehealth Trends"
+                            style="width:100%;border-radius:6px 6px 0 0;margin:-30px -30px 20px -30px;">
+                        <h3>Telehealth Trends in 2023</h3>
+                        <p>How virtual care is changing patient expectations and practice workflows.</p>
+                        <a href="#" class="btn btn-outline" style="margin-top:15px;">Read More</a>
+                    </div>
+
+                    <div class="feature-card">
+                        <img src="https://via.placeholder.com/300x200?text=HIPAA" alt="HIPAA Compliance"
+                            style="width:100%;border-radius:6px 6px 0 0;margin:-30px -30px 20px -30px;">
+                        <h3>HIPAA Compliance Checklist</h3>
+                        <p>Essential steps to ensure your practice meets all requirements.</p>
+                        <a href="#" class="btn btn-outline" style="margin-top:15px;">Read More</a>
+                    </div>
+
+                    <div class="feature-card">
+                        <img src="https://via.placeholder.com/300x200?text=Automation" alt="Practice Automation"
+                            style="width:100%;border-radius:6px 6px 0 0;margin:-30px -30px 20px -30px;">
+                        <h3>Automating Your Practice</h3>
+                        <p>5 workflows you should automate to save time and reduce errors.</p>
+                        <a href="#" class="btn btn-outline" style="margin-top:15px;">Read More</a>
+                    </div>
+                </div>
+
+                <div style="text-align:center; margin-top:50px;">
+                    <a href="#" class="btn btn-primary">View All Articles</a>
+                </div>
+            </div>
+        </section>
+    </section>
+
+
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>WellnessHealthcare BD</h3>
+                    <p>Comprehensive healthcare management solution for clinics, hospitals, and practitioners.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Product</h3>
+                    <div class="footer-column">
+                        <h3>Company</h3>
+                        <ul>
+                            <li><a href="#" data-page="about">About Us</a></li>
+                            <li><a href="#" data-page="careers">Careers</a></li>
+                            <li><a href="#" data-page="blog">Blog</a></li>
+                            <li><a href="#" data-page="contact">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#" data-page="contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">Community</a></li>
+                        <li><a href="#">Webinars</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 WellnessHealthcare BD. All rights reserved. | Shuvo Singh Partho | Lead Engineer.</p>
+                <div class="social-media">
+                    <a href="https://www.facebook.com/shuvosiinghpartho" aria-label="Facebook">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/shuvosinghpartho/" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="#" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://x.com/shuvosinghparth" aria-label="X (Twitter)">
+                        <i class="fab fa-x-twitter"></i>
+                    </a>
+                </div>
+            </div>
+            
+            
+            <style>
+.social-media {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px; /* Adds space between icons */
+    margin-top: 10px;
+}
+
+.social-media a {
+    display: inline-block;
+    font-size: 24px;
+    color: #555;
+    transition: color 0.3s ease-in-out;
+    text-decoration: none;
+    padding: 5px; /* Adds space around the icon */
+}
+
+.social-media a:hover {
+    color: #333;
+}
+
+/* Specific icon colors on hover */
+.social-media a:nth-child(1):hover { color: #3b5998; } /* Facebook */
+.social-media a:nth-child(2):hover { color: #0077b5; } /* LinkedIn */
+.social-media a:nth-child(3):hover { color: #e4405f; } /* Instagram */
+.social-media a:nth-child(4):hover { color: #000000; } /* X/Twitter */
+
+            </style>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>
