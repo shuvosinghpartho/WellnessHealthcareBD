@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book an Appointment</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <link rel="icon" href="pics/mainlogo.jpg" type="image/icon type">
+    <a href="index.html"></a>
+    <link rel="icon" href="pics/mainlogo.jpg" type="image/icon type">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* CSS Styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .booking-container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .booking-header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .booking-header h1 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .booking-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group.full-width {
+            grid-column: span 2;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: border 0.3s;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border-color: #3498db;
+            outline: none;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .btn-submit {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 14px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            grid-column: span 2;
+            width: 100%;
+        }
+
+        .btn-submit:hover {
+            background-color: #2980b9;
+        }
+
+        .confirmation {
+            display: none;
+            text-align: center;
+            padding: 20px;
+            background: #e8f8f5;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        .confirmation h2 {
+            color: #27ae60;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .booking-form {
+                grid-template-columns: 1fr;
+            }
+
+            .form-group.full-width {
+                grid-column: span 1;
+            }
+
+            .btn-submit {
+                grid-column: span 1;
+            }
+        }
+
+        /* footer */
+    </style>
+</head>
+
+<body>
+    <div class="booking-container">
+        <div class="booking-header">
+            <h1>Book Your Appointment</h1>
+            <p>Fill out the form below to schedule your appointment</p>
+        </div>
+
+        <form id="appointmentForm" class="booking-form">
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" required>
+            </div>
+
+            <div class="form-group">
+                <label for="date">Appointment Date</label>
+                <input type="date" id="date" name="date" required>
+            </div>
+
+            <div class="form-group">
+                <label for="time">Appointment Time</label>
+                <input type="time" id="time" name="time" required>
+            </div>
+
+            <div class="form-group">
+                <label for="service">Service Type</label>
+                <select id="service" name="service" required>
+                    <option value="">Select a service</option>
+                    <option value="consultation">General Consultation</option>
+                    <option value="checkup">Regular Checkup</option>
+                    <option value="followup">Follow-up Visit</option>
+                    <option value="emergency">Emergency Visit</option>
+                </select>
+            </div>
+
+            <div class="form-group full-width">
+                <label for="notes">Additional Notes</label>
+                <textarea id="notes" name="notes"></textarea>
+            </div>
+
+            <button type="submit" class="btn-submit">Book Appointment</button>
+        </form>
+
+        <div id="confirmation" class="confirmation">
+            <h2>Appointment Booked Successfully!</h2>
+            <p>Thank you for scheduling with us. We've sent a confirmation to your email.</p>
+            <div id="appointmentDetails"></div>
+        </div>
+    </div>
+
+
+    <!-- footer  -->
+
+
+    <script>
+        // JavaScript for form handling
+        document.addEventListener('DOMContentLoaded', function () {
+            const form = document.getElementById('appointmentForm');
+            const confirmation = document.getElementById('confirmation');
+            const appointmentDetails = document.getElementById('appointmentDetails');
+
+            // Set minimum date to today
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('date').min = today;
+
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                // Get form values
+                const formData = {
+                    name: form.name.value,
+                    email: form.email.value,
+                    phone: form.phone.value,
+                    date: form.date.value,
+                    time: form.time.value,
+                    service: form.service.value,
+                    notes: form.notes.value
+                };
+
+                // In a real app, you would send this data to your server here
+                console.log('Form data:', formData);
+
+                // Show confirmation
+                form.style.display = 'none';
+                confirmation.style.display = 'block';
+
+                // Display appointment details
+                appointmentDetails.innerHTML = `
+                    <p><strong>Name:</strong> ${formData.name}</p>
+                    <p><strong>Date:</strong> ${new Date(formData.date).toDateString()}</p>
+                    <p><strong>Time:</strong> ${formData.time}</p>
+                    <p><strong>Service:</strong> ${form.service.options[form.service.selectedIndex].text}</p>
+                `;
+
+                // Reset form (optional)
+                form.reset();
+            });
+
+            // Simple form validation
+            const inputs = form.querySelectorAll('input, select, textarea');
+            inputs.forEach(input => {
+                input.addEventListener('blur', function () {
+                    if (!this.value && this.required) {
+                        this.style.borderColor = 'red';
+                    } else {
+                        this.style.borderColor = '#ddd';
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+
+</html>
