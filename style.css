@@ -252,6 +252,9 @@ header {
 }
 
 /* Features Page */
+
+
+
 .feature-detail {
     background: white;
     border-radius: var(--border-radius);
@@ -665,17 +668,6 @@ footer {
     margin-bottom: 30px;
     padding-left: 20px;
 }
-
-
-
-
-
-
-
-
-
-
-
 
 
 
