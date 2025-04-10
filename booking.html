@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book an Appointment | WellnessHealthcare BD</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="icon" href="pics/mainlogo.jpg" type="image/icon type">
     <link rel="stylesheet" href="style.css">
     <style>
-
         :root {
             --primary: #00A09D;
             --primary-dark: #00827F;
@@ -240,16 +241,36 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-            40% { transform: translateY(-20px); }
-            60% { transform: translateY(-10px); }
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateY(0);
+            }
+
+            40% {
+                transform: translateY(-20px);
+            }
+
+            60% {
+                transform: translateY(-10px);
+            }
         }
-        
+
         .time-slots {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
@@ -533,7 +554,8 @@
                 </div>
 
                 <div class="navigation-buttons">
-                    <button type="button" class="btn-nav btn-next" onclick="nextStep(1)">Continue <i class="fas fa-arrow-right"></i></button>
+                    <button type="button" class="btn-nav btn-next" onclick="nextStep(1)">Continue <i
+                            class="fas fa-arrow-right"></i></button>
                 </div>
             </div>
 
@@ -600,33 +622,40 @@
 
                 <div class="form-group full-width">
                     <label for="notes">Additional Notes (Optional)</label>
-                    <textarea id="notes" name="notes" placeholder="Any special requirements or notes for the doctor..."></textarea>
+                    <textarea id="notes" name="notes"
+                        placeholder="Any special requirements or notes for the doctor..."></textarea>
                 </div>
 
                 <div class="navigation-buttons">
-                    <button type="button" class="btn-nav btn-prev" onclick="prevStep(2)"><i class="fas fa-arrow-left"></i> Back</button>
-                    <button type="button" class="btn-nav btn-next" onclick="nextStep(2)">Continue <i class="fas fa-arrow-right"></i></button>
+                    <button type="button" class="btn-nav btn-prev" onclick="prevStep(2)"><i
+                            class="fas fa-arrow-left"></i> Back</button>
+                    <button type="button" class="btn-nav btn-next" onclick="nextStep(2)">Continue <i
+                            class="fas fa-arrow-right"></i></button>
                 </div>
             </div>
 
             <!-- Step 3: Review & Confirm -->
             <div class="form-section" id="step3">
                 <h3 style="margin-bottom: 20px; text-align: center;">Review Your Appointment</h3>
-                
+
                 <div class="appointment-details" id="reviewDetails">
                     <!-- Filled by JavaScript -->
                 </div>
 
                 <div class="form-group full-width" style="margin-top: 20px;">
                     <div class="input-wrapper">
-                        <input type="checkbox" id="terms" name="terms" required style="width: auto; display: inline-block; margin-right: 10px;">
-                        <label for="terms" style="display: inline; font-size: 0.9rem;">I agree to the <a href="#" style="color: var(--primary);">terms and conditions</a> and privacy policy</label>
+                        <input type="checkbox" id="terms" name="terms" required
+                            style="width: auto; display: inline-block; margin-right: 10px;">
+                        <label for="terms" style="display: inline; font-size: 0.9rem;">I agree to the <a href="#"
+                                style="color: var(--primary);">terms and conditions</a> and privacy policy</label>
                     </div>
                 </div>
 
                 <div class="navigation-buttons">
-                    <button type="button" class="btn-nav btn-prev" onclick="prevStep(3)"><i class="fas fa-arrow-left"></i> Back</button>
-                    <button type="submit" class="btn-submit"><i class="fas fa-calendar-check"></i> Confirm Appointment</button>
+                    <button type="button" class="btn-nav btn-prev" onclick="prevStep(3)"><i
+                            class="fas fa-arrow-left"></i> Back</button>
+                    <button type="submit" class="btn-submit"><i class="fas fa-calendar-check"></i> Confirm
+                        Appointment</button>
                 </div>
             </div>
         </form>
@@ -652,13 +681,13 @@
             const confirmation = document.getElementById('confirmation');
             const appointmentDetails = document.getElementById('appointmentDetails');
             const reviewDetails = document.getElementById('reviewDetails');
-            
+
             // Set minimum date to today
             const today = new Date();
             const tomorrow = new Date(today);
             tomorrow.setDate(tomorrow.getDate() + 1);
             document.getElementById('date').min = tomorrow.toISOString().split('T')[0];
-            
+
             // Initialize form data object
             const formData = {
                 name: '',
@@ -672,18 +701,18 @@
             };
 
             // Update review section when moving to step 3
-            window.nextStep = function(currentStep) {
+            window.nextStep = function (currentStep) {
                 if (currentStep === 1) {
                     // Validate step 1
                     const name = document.getElementById('name').value;
                     const email = document.getElementById('email').value;
                     const phone = document.getElementById('phone').value;
-                    
+
                     if (!name || !email || !phone) {
                         alert('Please fill in all required fields');
                         return;
                     }
-                    
+
                     // Save step 1 data
                     formData.name = name;
                     formData.email = email;
@@ -694,7 +723,7 @@
                     const doctor = document.querySelector('input[name="doctor"]:checked');
                     const date = document.getElementById('date').value;
                     const time = document.getElementById('time').value;
-                    
+
                     if (!service || !doctor || !date || !time) {
                         alert('Please fill in all required fields');
                         return;
@@ -705,45 +734,45 @@
 
 
 
-                    
-                    
+
+
                     // Save step 2 data
                     formData.service = service;
                     formData.doctor = doctor.value;
                     formData.date = date;
                     formData.time = time;
                     formData.notes = document.getElementById('notes').value;
-                    
+
                     // Update review section
                     updateReviewSection();
                 }
-                
+
                 // Move to next step
                 document.getElementById(`step${currentStep}`).classList.remove('active');
-                document.getElementById(`step${currentStep+1}`).classList.add('active');
+                document.getElementById(`step${currentStep + 1}`).classList.add('active');
                 document.getElementById(`step${currentStep}-indicator`).classList.remove('active');
-                document.getElementById(`step${currentStep+1}-indicator`).classList.add('active');
-                
+                document.getElementById(`step${currentStep + 1}-indicator`).classList.add('active');
+
                 // Scroll to top of form
                 window.scrollTo({
                     top: document.querySelector('.booking-container').offsetTop - 20,
                     behavior: 'smooth'
                 });
             };
-            
-            window.prevStep = function(currentStep) {
+
+            window.prevStep = function (currentStep) {
                 document.getElementById(`step${currentStep}`).classList.remove('active');
-                document.getElementById(`step${currentStep-1}`).classList.add('active');
+                document.getElementById(`step${currentStep - 1}`).classList.add('active');
                 document.getElementById(`step${currentStep}-indicator`).classList.remove('active');
-                document.getElementById(`step${currentStep-1}-indicator`).classList.add('active');
-                
+                document.getElementById(`step${currentStep - 1}-indicator`).classList.add('active');
+
                 // Scroll to top of form
                 window.scrollTo({
                     top: document.querySelector('.booking-container').offsetTop - 20,
                     behavior: 'smooth'
                 });
             };
-            
+
             function updateReviewSection() {
                 const serviceText = document.getElementById('service').options[document.getElementById('service').selectedIndex].text;
                 const doctorCard = document.querySelector('.doctor-card.selected');
@@ -751,7 +780,7 @@
                 const doctorSpecialty = doctorCard ? doctorCard.querySelector('p').textContent : '';
                 const date = new Date(formData.date);
                 const formattedDate = date.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
-                
+
                 reviewDetails.innerHTML = `
                     <p><strong>Name:</strong> ${formData.name}</p>
                     <p><strong>Email:</strong> ${formData.email}</p>
@@ -763,7 +792,7 @@
                     ${formData.notes ? `<p><strong>Notes:</strong> ${formData.notes}</p>` : ''}
                 `;
             }
-            
+
             function formatTime(time) {
                 const [hours, minutes] = time.split(':');
                 const hour = parseInt(hours);
@@ -771,18 +800,18 @@
                 const hour12 = hour % 12 || 12;
                 return `${hour12}:${minutes} ${ampm}`;
             }
-            
-            window.selectDoctor = function(element, value) {
+
+            window.selectDoctor = function (element, value) {
                 document.querySelectorAll('.doctor-card').forEach(card => {
                     card.classList.remove('selected');
                 });
                 element.classList.add('selected');
                 document.querySelector(`input[name="doctor"][value="${value}"]`).checked = true;
             };
-            
-            window.selectTimeSlot = function(element, time) {
+
+            window.selectTimeSlot = function (element, time) {
                 if (element.classList.contains('unavailable')) return;
-                
+
                 document.querySelectorAll('.time-slot').forEach(slot => {
                     slot.classList.remove('selected');
                 });
@@ -792,45 +821,45 @@
 
             form.addEventListener('submit', function (e) {
                 e.preventDefault();
-                
+
                 // Validate terms checkbox
                 if (!document.getElementById('terms').checked) {
                     alert('Please agree to the terms and conditions');
                     return;
                 }
-                
+
                 // In a real app, you would send this data to your server here
                 console.log('Form data:', formData);
-                
+
                 // Hide form and show confirmation
                 form.style.display = 'none';
                 confirmation.style.display = 'block';
-                
+
                 // Display appointment details
                 appointmentDetails.innerHTML = reviewDetails.innerHTML;
-                
+
                 // Scroll to confirmation
                 window.scrollTo({
                     top: confirmation.offsetTop - 20,
                     behavior: 'smooth'
                 });
 
-
-                                          // Send the formData via AJAX using Fetch
-      fetch('http://localhost/mydb/add_appointment.php', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',  // Send data as JSON
-        },
-        body: JSON.stringify(formData)  // Convert formData object to JSON
-      })
-      .then(response => response.text())
-      .then(result => {
-       // alert(result); // Display response from PHP
-      })
-      .catch(error => {
-       // alert('Error: ' + error);
-      });
+                // php set-up for mysql
+                // Send the formData via AJAX using Fetch
+                fetch('http://localhost/mydb/add_appointment.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',  // Send data as JSON
+                    },
+                    body: JSON.stringify(formData)  // Convert formData object to JSON
+                })
+                    .then(response => response.text())
+                    .then(result => {
+                        // alert(result); // Display response from PHP
+                    })
+                    .catch(error => {
+                        // alert('Error: ' + error);
+                    });
 
             });
 
@@ -848,4 +877,5 @@
         });
     </script>
 </body>
+
 </html>
