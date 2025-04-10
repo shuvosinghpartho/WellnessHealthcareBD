@@ -9,6 +9,7 @@
     <link rel="icon" href="pics/mainlogo.jpg" type="image/icon type">
     <link rel="stylesheet" href="style.css">
     <style>
+
         :root {
             --primary: #00A09D;
             --primary-dark: #00827F;
@@ -248,7 +249,7 @@
             40% { transform: translateY(-20px); }
             60% { transform: translateY(-10px); }
         }
-
+        
         .time-slots {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
@@ -504,7 +505,7 @@
             </div>
         </div>
 
-        <form id="appointmentForm" class="booking-form">
+        <form id="appointmentForm" action="appointment.php" method="post" class="booking-form">
             <!-- Step 1: Personal Information -->
             <div class="form-section active" id="step1">
                 <div class="form-group">
@@ -698,6 +699,13 @@
                         alert('Please fill in all required fields');
                         return;
                     }
+
+
+
+
+
+
+                    
                     
                     // Save step 2 data
                     formData.service = service;
@@ -806,6 +814,24 @@
                     top: confirmation.offsetTop - 20,
                     behavior: 'smooth'
                 });
+
+
+                                          // Send the formData via AJAX using Fetch
+      fetch('http://localhost/mydb/add_appointment.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',  // Send data as JSON
+        },
+        body: JSON.stringify(formData)  // Convert formData object to JSON
+      })
+      .then(response => response.text())
+      .then(result => {
+       // alert(result); // Display response from PHP
+      })
+      .catch(error => {
+       // alert('Error: ' + error);
+      });
+
             });
 
             // Simple form validation
