@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Insurance Policy | WellnessHealthcare BD</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Health Insurance Policy | WellnessHealthcare BD</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="icon" href="pics/mainlogo.jpg" type="image/icon type">
     <style>
@@ -311,6 +312,76 @@
             color: var(--gray);
         }
 
+        .policy-card .price {
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-top: 5px;
+        }
+
+        .family-members {
+            background: #f5f7fa;
+            padding: 20px;
+            border-radius: var(--border-radius);
+            margin-top: 20px;
+        }
+
+        .family-member {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .family-member:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .add-member-btn {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            margin-top: 10px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+        }
+
+        .add-member-btn:hover {
+            background-color: var(--primary-dark);
+        }
+
+        .remove-member-btn {
+            background-color: var(--secondary);
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            margin-top: 10px;
+        }
+
+        .remove-member-btn:hover {
+            background-color: #c0392b;
+        }
+
+        .section-title {
+            font-size: 1.2rem;
+            color: var(--primary-dark);
+            margin: 25px 0 15px 0;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #e0e0e0;
+            grid-column: 1 / -1;
+        }
+
         @media (max-width: 768px) {
             .insurance-container {
                 margin: 30px auto;
@@ -346,16 +417,18 @@
 <body>
     <div class="insurance-container">
         <div class="insurance-header">
-            <h1>Insurance Policy Application</h1>
-            <p>Fill out the form below to apply for your health insurance policy</p>
+            <h1>Health Insurance Policy Application</h1>
+            <p>Complete this form to apply for comprehensive health coverage with WellnessHealthcare BD</p>
         </div>
 
         <form id="insuranceForm" class="insurance-form">
-            <!-- Personal Information -->
+            <!-- Personal Information Section -->
+            <h3 class="section-title">Personal Information</h3>
+
             <div class="form-group">
                 <label for="fullName">Full Name</label>
                 <div class="input-wrapper">
-                    <input type="text" id="fullName" name="fullName" required placeholder="John Doe">
+                    <input type="text" id="fullName" name="fullName" required placeholder="partho singh">
                     <i class="fas fa-user input-icon"></i>
                 </div>
             </div>
@@ -363,7 +436,7 @@
             <div class="form-group">
                 <label for="email">Email Address</label>
                 <div class="input-wrapper">
-                    <input type="email" id="email" name="email" required placeholder="john@example.com">
+                    <input type="email" id="email" name="email" required placeholder="partho@example.com">
                     <i class="fas fa-envelope input-icon"></i>
                 </div>
             </div>
@@ -373,6 +446,14 @@
                 <div class="input-wrapper">
                     <input type="tel" id="phone" name="phone" required placeholder="+880 1XXX-XXXXXX">
                     <i class="fas fa-phone input-icon"></i>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="nid">National ID Number</label>
+                <div class="input-wrapper">
+                    <input type="text" id="nid" name="nid" required placeholder="Enter your NID">
+                    <i class="fas fa-id-card input-icon"></i>
                 </div>
             </div>
 
@@ -394,10 +475,23 @@
                 </select>
             </div>
 
+            <div class="form-group">
+                <label for="maritalStatus">Marital Status</label>
+                <select id="maritalStatus" name="maritalStatus" required>
+                    <option value="">Select Status</option>
+                    <option value="single">Single</option>
+                    <option value="married">Married</option>
+                    <option value="divorced">Divorced</option>
+                    <option value="widowed">Widowed</option>
+                </select>
+            </div>
+
             <!-- Address Information -->
+            <h3 class="section-title">Address Information</h3>
+
             <div class="form-group full-width">
                 <label for="address">Street Address</label>
-                <input type="text" id="address" name="address" required placeholder="123 Main Street">
+                <input type="text" id="address" name="address" required placeholder="Daffodil smirt city, Dhaka">
             </div>
 
             <div class="form-group">
@@ -419,7 +513,7 @@
                 <label for="country">Country</label>
                 <select id="country" name="country" required>
                     <option value="">Select Country</option>
-                    <option value="BD">Bangladesh</option>
+                    <option value="BD" selected>Bangladesh</option>
                     <option value="US">United States</option>
                     <option value="UK">United Kingdom</option>
                     <option value="CA">Canada</option>
@@ -429,25 +523,30 @@
             </div>
 
             <!-- Policy Information -->
+            <h3 class="section-title">Policy Selection</h3>
+
             <div class="form-group full-width">
-                <label>Select Policy Type</label>
+                <label>Select Health Plan</label>
                 <div class="policy-type-selection">
                     <div class="policy-card" onclick="selectPolicy(this, 'basic')">
                         <i class="fas fa-shield-alt"></i>
-                        <h4>Basic Coverage</h4>
-                        <p>Essential health benefits</p>
+                        <h4>Basic Health Plan</h4>
+                        <p>Inpatient care, emergency services</p>
+                        <div class="price">৳3,500/month</div>
                         <input type="radio" name="policyType" value="basic" style="display: none;">
                     </div>
                     <div class="policy-card" onclick="selectPolicy(this, 'standard')">
                         <i class="fas fa-shield-virus"></i>
-                        <h4>Standard Coverage</h4>
-                        <p>Comprehensive protection</p>
+                        <h4>Standard Health Plan</h4>
+                        <p>Includes outpatient, diagnostics</p>
+                        <div class="price">৳6,000/month</div>
                         <input type="radio" name="policyType" value="standard" style="display: none;">
                     </div>
                     <div class="policy-card" onclick="selectPolicy(this, 'premium')">
                         <i class="fas fa-star"></i>
-                        <h4>Premium Coverage</h4>
-                        <p>Full coverage with extras</p>
+                        <h4>Premium Health Plan</h4>
+                        <p>Full coverage with dental/vision</p>
+                        <div class="price">৳9,500/month</div>
                         <input type="radio" name="policyType" value="premium" style="display: none;">
                     </div>
                 </div>
@@ -461,37 +560,162 @@
                 </div>
             </div>
 
+            <!-- Family Members -->
+            <h3 class="section-title">Family Members to Include</h3>
+
+            <div id="familyMembersContainer" class="family-members">
+                <div class="family-member">
+                    <div class="form-group">
+                        <label>Relationship</label>
+                        <select name="familyRelation[]" required>
+                            <option value="">Select</option>
+                            <option value="spouse">Spouse</option>
+                            <option value="child">Child</option>
+                            <option value="parent">Parent</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input type="text" name="familyName[]" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Date of Birth</label>
+                        <input type="date" name="familyDob[]" required>
+                    </div>
+                </div>
+            </div>
+
+            <button type="button" class="add-member-btn" onclick="addFamilyMember()">
+                <i class="fas fa-plus"></i> Add Family Member
+            </button>
+
             <!-- Medical Information -->
+            <h3 class="section-title">Health Information</h3>
+
             <div class="form-group">
                 <label for="height">Height (cm)</label>
-                <input type="number" id="height" name="height" required>
+                <input type="number" id="height" name="height" required min="100" max="250">
             </div>
 
             <div class="form-group">
                 <label for="weight">Weight (kg)</label>
-                <input type="number" id="weight" name="weight" required>
-            </div>
-
-            <div class="form-group full-width">
-                <label for="medicalHistory">Medical History (if any)</label>
-                <textarea id="medicalHistory" name="medicalHistory" placeholder="List any pre-existing conditions, allergies, or medications..."></textarea>
-            </div>
-
-            <!-- Beneficiary Information -->
-            <div class="form-group full-width">
-                <label for="beneficiary">Primary Beneficiary</label>
-                <input type="text" id="beneficiary" name="beneficiary" required placeholder="Full name of beneficiary">
+                <input type="number" id="weight" name="weight" required min="30" max="200">
             </div>
 
             <div class="form-group">
-                <label for="beneficiaryRelation">Relationship</label>
-                <select id="beneficiaryRelation" name="beneficiaryRelation" required>
-                    <option value="">Select Relationship</option>
+                <label for="bloodType">Blood Type</label>
+                <select id="bloodType" name="bloodType" required>
+                    <option value="">Select</option>
+                    <option value="A+">A+</option>
+                    <option value="A-">A-</option>
+                    <option value="B+">B+</option>
+                    <option value="B-">B-</option>
+                    <option value="AB+">AB+</option>
+                    <option value="AB-">AB-</option>
+                    <option value="O+">O+</option>
+                    <option value="O-">O-</option>
+                </select>
+            </div>
+
+            <div class="form-group full-width">
+                <label for="medicalHistory">Medical History</label>
+                <textarea id="medicalHistory" name="medicalHistory"
+                    placeholder="List any pre-existing conditions, surgeries, hospitalizations, or chronic illnesses..."></textarea>
+            </div>
+
+            <div class="form-group full-width">
+                <label for="currentMedications">Current Medications</label>
+                <textarea id="currentMedications" name="currentMedications"
+                    placeholder="List all medications you're currently taking..."></textarea>
+            </div>
+
+            <div class="form-group full-width">
+                <label for="allergies">Allergies</label>
+                <textarea id="allergies" name="allergies"
+                    placeholder="List any known allergies (drug, food, environmental)..."></textarea>
+            </div>
+
+            <!-- Lifestyle Information -->
+            <h3 class="section-title">Lifestyle Information</h3>
+
+            <div class="form-group">
+                <label for="smoker">Do you smoke?</label>
+                <select id="smoker" name="smoker" required>
+                    <option value="">Select</option>
+                    <option value="no">No</option>
+                    <option value="occasionally">Occasionally</option>
+                    <option value="regularly">Regularly</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="alcohol">Alcohol consumption?</label>
+                <select id="alcohol" name="alcohol" required>
+                    <option value="">Select</option>
+                    <option value="no">No</option>
+                    <option value="occasionally">Occasionally</option>
+                    <option value="regularly">Regularly</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="exercise">Exercise frequency?</label>
+                <select id="exercise" name="exercise" required>
+                    <option value="">Select</option>
+                    <option value="none">None</option>
+                    <option value="1-2">1-2 times/week</option>
+                    <option value="3-4">3-4 times/week</option>
+                    <option value="daily">Daily</option>
+                </select>
+            </div>
+
+            <!-- Emergency Contact -->
+            <h3 class="section-title">Emergency Contact</h3>
+
+            <div class="form-group">
+                <label for="emergencyName">Full Name</label>
+                <input type="text" id="emergencyName" name="emergencyName" required>
+            </div>
+
+            <div class="form-group">
+                <label for="emergencyRelation">Relationship</label>
+                <select id="emergencyRelation" name="emergencyRelation" required>
+                    <option value="">Select</option>
                     <option value="spouse">Spouse</option>
-                    <option value="child">Child</option>
                     <option value="parent">Parent</option>
+                    <option value="child">Child</option>
                     <option value="sibling">Sibling</option>
+                    <option value="friend">Friend</option>
                     <option value="other">Other</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="emergencyPhone">Phone Number</label>
+                <input type="tel" id="emergencyPhone" name="emergencyPhone" required>
+            </div>
+
+            <!-- Payment Information -->
+            <h3 class="section-title">Payment Information</h3>
+
+            <div class="form-group">
+                <label for="paymentMethod">Payment Method</label>
+                <select id="paymentMethod" name="paymentMethod" required>
+                    <option value="">Select</option>
+                    <option value="credit">Credit Card</option>
+                    <option value="debit">Debit Card</option>
+                    <option value="bank">Bank Transfer</option>
+                    <option value="mobile">Mobile Banking</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="paymentFrequency">Payment Frequency</label>
+                <select id="paymentFrequency" name="paymentFrequency" required>
+                    <option value="">Select</option>
+                    <option value="monthly">Monthly</option>
+                    <option value="quarterly">Quarterly</option>
+                    <option value="yearly">Yearly</option>
                 </select>
             </div>
 
@@ -500,8 +724,9 @@
                 <div class="input-wrapper">
                     <input type="checkbox" id="terms" name="terms" required
                         style="width: auto; display: inline-block; margin-right: 10px;">
-                    <label for="terms" style="display: inline; font-size: 0.9rem;">I agree to the <a href="#"
-                            style="color: var(--primary);">terms and conditions</a> and privacy policy</label>
+                    <label for="terms" style="display: inline; font-size: 0.9rem;">I certify that all information
+                        provided is accurate and agree to the <a href="#" style="color: var(--primary);">terms and
+                            conditions</a> and privacy policy</label>
                 </div>
             </div>
 
@@ -512,8 +737,9 @@
             <div class="confirmation-icon">
                 <i class="fas fa-check-circle"></i>
             </div>
-            <h2>Application Submitted!</h2>
-            <p>Your insurance policy application has been successfully submitted. A representative will contact you soon.</p>
+            <h2>Application Submitted Successfully!</h2>
+            <p>Your health insurance application has been received. Our team will review your information and contact
+                you within 2 business days.</p>
             <div class="policy-details" id="policyDetails">
                 <!-- Filled by JavaScript -->
             </div>
@@ -528,12 +754,21 @@
             const form = document.getElementById('insuranceForm');
             const confirmation = document.getElementById('confirmation');
             const policyDetails = document.getElementById('policyDetails');
+            const familyMembersContainer = document.getElementById('familyMembersContainer');
+
+            // Set default country to Bangladesh
+            document.getElementById('country').value = 'BD';
 
             // Set minimum date for coverage start (tomorrow)
             const today = new Date();
             const tomorrow = new Date(today);
             tomorrow.setDate(tomorrow.getDate() + 1);
             document.getElementById('coverageStart').min = tomorrow.toISOString().split('T')[0];
+
+            // Set maximum date of birth (today - 1 year)
+            const maxDob = new Date(today);
+            maxDob.setFullYear(maxDob.getFullYear() - 1);
+            document.getElementById('dob').max = maxDob.toISOString().split('T')[0];
 
             // Policy selection
             window.selectPolicy = function (element, value) {
@@ -542,6 +777,37 @@
                 });
                 element.classList.add('selected');
                 document.querySelector(`input[name="policyType"][value="${value}"]`).checked = true;
+            };
+
+            // Add family member
+            window.addFamilyMember = function () {
+                const memberDiv = document.createElement('div');
+                memberDiv.className = 'family-member';
+
+                memberDiv.innerHTML = `
+                    <div class="form-group">
+                        <label>Relationship</label>
+                        <select name="familyRelation[]" required>
+                            <option value="">Select</option>
+                            <option value="spouse">Spouse</option>
+                            <option value="child">Child</option>
+                            <option value="parent">Parent</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input type="text" name="familyName[]" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Date of Birth</label>
+                        <input type="date" name="familyDob[]" required max="${maxDob.toISOString().split('T')[0]}">
+                    </div>
+                    <button type="button" class="remove-member-btn" onclick="this.parentNode.remove()">
+                        <i class="fas fa-times"></i> Remove
+                    </button>
+                `;
+
+                familyMembersContainer.appendChild(memberDiv);
             };
 
             // Form submission
@@ -556,24 +822,61 @@
 
                 // Get form values
                 const formData = {
-                    fullName: document.getElementById('fullName').value,
-                    email: document.getElementById('email').value,
-                    phone: document.getElementById('phone').value,
-                    dob: document.getElementById('dob').value,
-                    gender: document.getElementById('gender').value,
-                    address: document.getElementById('address').value,
-                    city: document.getElementById('city').value,
-                    state: document.getElementById('state').value,
-                    zip: document.getElementById('zip').value,
-                    country: document.getElementById('country').value,
-                    policyType: document.querySelector('input[name="policyType"]:checked').value,
-                    coverageStart: document.getElementById('coverageStart').value,
-                    height: document.getElementById('height').value,
-                    weight: document.getElementById('weight').value,
-                    medicalHistory: document.getElementById('medicalHistory').value,
-                    beneficiary: document.getElementById('beneficiary').value,
-                    beneficiaryRelation: document.getElementById('beneficiaryRelation').value
+                    personalInfo: {
+                        fullName: document.getElementById('fullName').value,
+                        email: document.getElementById('email').value,
+                        phone: document.getElementById('phone').value,
+                        nid: document.getElementById('nid').value,
+                        dob: document.getElementById('dob').value,
+                        gender: document.getElementById('gender').value,
+                        maritalStatus: document.getElementById('maritalStatus').value
+                    },
+                    address: {
+                        street: document.getElementById('address').value,
+                        city: document.getElementById('city').value,
+                        state: document.getElementById('state').value,
+                        zip: document.getElementById('zip').value,
+                        country: document.getElementById('country').value
+                    },
+                    policy: {
+                        type: document.querySelector('input[name="policyType"]:checked').value,
+                        startDate: document.getElementById('coverageStart').value
+                    },
+                    health: {
+                        height: document.getElementById('height').value,
+                        weight: document.getElementById('weight').value,
+                        bloodType: document.getElementById('bloodType').value,
+                        medicalHistory: document.getElementById('medicalHistory').value,
+                        medications: document.getElementById('currentMedications').value,
+                        allergies: document.getElementById('allergies').value,
+                        smoker: document.getElementById('smoker').value,
+                        alcohol: document.getElementById('alcohol').value,
+                        exercise: document.getElementById('exercise').value
+                    },
+                    emergencyContact: {
+                        name: document.getElementById('emergencyName').value,
+                        relationship: document.getElementById('emergencyRelation').value,
+                        phone: document.getElementById('emergencyPhone').value
+                    },
+                    payment: {
+                        method: document.getElementById('paymentMethod').value,
+                        frequency: document.getElementById('paymentFrequency').value
+                    },
+                    familyMembers: []
                 };
+
+                // Collect family members
+                const familyRelations = document.getElementsByName('familyRelation[]');
+                const familyNames = document.getElementsByName('familyName[]');
+                const familyDobs = document.getElementsByName('familyDob[]');
+
+                for (let i = 0; i < familyRelations.length; i++) {
+                    formData.familyMembers.push({
+                        relation: familyRelations[i].value,
+                        name: familyNames[i].value,
+                        dob: familyDobs[i].value
+                    });
+                }
 
                 // In a real app, you would send this data to your server here
                 console.log('Form data:', formData);
@@ -583,19 +886,40 @@
                 confirmation.style.display = 'block';
 
                 // Format dates
-                const dobDate = new Date(formData.dob);
+                const dobDate = new Date(formData.personalInfo.dob);
                 const formattedDob = dobDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
-                
-                const startDate = new Date(formData.coverageStart);
+
+                const startDate = new Date(formData.policy.startDate);
                 const formattedStart = startDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+
+                // Get policy details
+                let policyName = '';
+                let policyPrice = '';
+
+                switch (formData.policy.type) {
+                    case 'basic':
+                        policyName = 'Basic Health Plan';
+                        policyPrice = '৳3,500/month';
+                        break;
+                    case 'standard':
+                        policyName = 'Standard Health Plan';
+                        policyPrice = '৳6,000/month';
+                        break;
+                    case 'premium':
+                        policyName = 'Premium Health Plan';
+                        policyPrice = '৳9,500/month';
+                        break;
+                }
 
                 // Display policy details
                 policyDetails.innerHTML = `
-                    <p><strong>Name:</strong> ${formData.fullName}</p>
+                    <p><strong>Applicant:</strong> ${formData.personalInfo.fullName}</p>
                     <p><strong>Date of Birth:</strong> ${formattedDob}</p>
-                    <p><strong>Policy Type:</strong> ${formData.policyType.charAt(0).toUpperCase() + formData.policyType.slice(1)} Coverage</p>
+                    <p><strong>Health Plan:</strong> ${policyName}</p>
+                    <p><strong>Monthly Premium:</strong> ${policyPrice}</p>
                     <p><strong>Coverage Start:</strong> ${formattedStart}</p>
-                    <p><strong>Beneficiary:</strong> ${formData.beneficiary} (${formData.beneficiaryRelation})</p>
+                    <p><strong>Family Members:</strong> ${formData.familyMembers.length}</p>
+                    <p><strong>Emergency Contact:</strong> ${formData.emergencyContact.name} (${formData.emergencyContact.relationship})</p>
                 `;
 
                 // Scroll to confirmation

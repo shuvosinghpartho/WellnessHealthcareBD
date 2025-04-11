@@ -577,23 +577,23 @@
                 <div class="form-group">
                     <label for="doctor">Select Doctor</label>
                     <div class="doctor-selection">
-                        <div class="doctor-card" onclick="selectDoctor(this, 'drSmith')">
-                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Dr. Smith">
-                            <h4>Dr. Smith</h4>
-                            <p>Cardiologist</p>
-                            <input type="radio" name="doctor" value="drSmith" style="display: none;">
+                        <div class="doctor-card" onclick="selectDoctor(this, 'Dr. Prasanta K Chanda')">
+                            <img src="https://cloud.heliumdoc.com/profilepic/prasanta-k-chanda/140/140/95" alt="Dr. Prasanta K Chanda">
+                            <h4>Dr. Prasanta K Chanda</h4>
+                            <p>Cardiologist (Heart) / Cardiovascular Surgery</p>
+                            <input type="radio" name="doctor" value="Dr. Prasanta K Chanda" style="display: none;">
                         </div>
-                        <div class="doctor-card" onclick="selectDoctor(this, 'drJohnson')">
-                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Dr. Johnson">
-                            <h4>Dr. Johnson</h4>
-                            <p>Pediatrician</p>
-                            <input type="radio" name="doctor" value="drJohnson" style="display: none;">
+                        <div class="doctor-card" onclick="selectDoctor(this, 'Dr. Sudhakar Chandran Bose')">
+                            <img src="https://cloud.heliumdoc.com/profilepic/sudhakar-chandran-bose/140/140/95" alt="Dr. Sudhakar Chandran Bose">
+                            <h4>Dr. Sudhakar Chandran Bose</h4>
+                            <p>General Surgeon</p>
+                            <input type="radio" name="doctor" value="Dr. Sudhakar Chandran Bose" style="display: none;">
                         </div>
-                        <div class="doctor-card" onclick="selectDoctor(this, 'drWilliams')">
-                            <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Dr. Williams">
-                            <h4>Dr. Williams</h4>
-                            <p>General Physician</p>
-                            <input type="radio" name="doctor" value="drWilliams" style="display: none;">
+                        <div class="doctor-card" onclick="selectDoctor(this, 'Dr. Nargis Fatema')">
+                            <img src="https://cloud.heliumdoc.com/profilepic/nargis-fatema/140/140/95" alt="Dr. Nargis Fatema">
+                            <h4>Dr. Nargis Fatema</h4>
+                            <p>Obstetrician and Gynecologist (Women)</p>
+                            <input type="radio" name="doctor" value="Dr. Nargis Fatema" style="display: none;">
                         </div>
                     </div>
                 </div>
@@ -844,6 +844,17 @@
                     behavior: 'smooth'
                 });
 
+
+
+
+
+
+
+
+
+
+
+
                 // php set-up for mysql
                 // Send the formData via AJAX using Fetch
                 fetch('http://localhost/mydb/add_appointment.php', {
@@ -862,6 +873,22 @@
                     });
 
             });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
             // Simple form validation
             const inputs = form.querySelectorAll('input, select, textarea');
