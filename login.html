@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | WellnessHealthcare BD</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="icon" href="pics/mainlogo.jpg" type="image/icon type">
+    <style>
+        :root {
+            --primary: #00A09D;
+            --primary-dark: #00827F;
+            --secondary: #E04F67;
+            --dark: #2C3E50;
+            --light: #F5F7FA;
+            --gray: #7F8C8D;
+            --success: #27ae60;
+            --border-radius: 8px;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, rgba(0, 160, 157, 0.1) 0%, rgba(245, 247, 250, 1) 100%);
+            padding: 20px;
+        }
+
+        .auth-container {
+            display: flex;
+            max-width: 900px;
+            width: 100%;
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            min-height: 500px;
+        }
+
+        .auth-image {
+            flex: 1;
+            background: url('pics/login4.jpg') center/cover no-repeat;
+            display: none;
+        }
+
+        .auth-form-container {
+            flex: 1;
+            padding: 40px;
+            position: relative;
+        }
+
+        .auth-tabs {
+            display: flex;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .auth-tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            font-weight: 500;
+            color: var(--gray);
+            transition: var(--transition);
+            border-bottom: 3px solid transparent;
+        }
+
+        .auth-tab.active {
+            color: var(--primary);
+            border-bottom: 3px solid var(--primary);
+        }
+
+        .auth-header {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .auth-header h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        .auth-header p {
+            color: var(--gray);
+            font-size: 14px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--dark);
+            font-size: 14px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            font-size: 14px;
+            transition: var(--transition);
+        }
+
+        input:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(0, 160, 157, 0.2);
+        }
+
+        .btn {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: var(--border-radius);
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+        }
+
+        .auth-footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+            color: var(--gray);
+        }
+
+        .auth-footer a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .auth-footer a:hover {
+            text-decoration: underline;
+        }
+
+        .remember-forgot {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        .remember-me {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .forgot-password a {
+            color: var(--secondary);
+            text-decoration: none;
+        }
+
+        .forgot-password a:hover {
+            text-decoration: underline;
+        }
+
+        /* Social login styles */
+        .social-login {
+            margin: 25px 0;
+            text-align: center;
+        }
+
+        .social-login p {
+            color: var(--gray);
+            font-size: 14px;
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .social-login p::before,
+        .social-login p::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 30%;
+            height: 1px;
+            background: #e0e0e0;
+        }
+
+        .social-login p::before {
+            left: 0;
+        }
+
+        .social-login p::after {
+            right: 0;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .social-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: var(--transition);
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-3px);
+        }
+
+        .facebook {
+            background-color: #3b5998;
+        }
+
+        .google {
+            background-color: #db4437;
+        }
+
+        .linkedin {
+            background-color: #0077b5;
+        }
+
+        /* Form switching */
+        .form-content {
+            display: none;
+        }
+
+        .form-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Error message */
+        .error-message {
+            color: var(--secondary);
+            font-size: 14px;
+            margin-top: 5px;
+            display: none;
+        }
+
+        /* Responsive */
+        @media (min-width: 768px) {
+            .auth-image {
+                display: block;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .auth-form-container {
+                padding: 30px 20px;
+            }
+            
+            .auth-tab {
+                padding: 10px 15px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-image"></div>
+        
+        <div class="auth-form-container">
+            <div class="auth-tabs">
+                <div class="auth-tab active" data-tab="login">Sign In</div>
+                <div class="auth-tab" data-tab="register">Sign Up</div>
+            </div>
+            
+            <!-- Login Form -->
+            <div class="form-content active" id="login-form">
+                <div class="auth-header">
+                    <h2>Welcome Back</h2>
+                    <p>Sign in to access your healthcare dashboard</p>
+                </div>
+                
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="login-username">User Name</label>
+                        <input type="text" id="login-username" placeholder="Enter your username" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="login-password">Password</label>
+                        <input type="password" id="login-password" placeholder="Enter your password" required>
+                        <div class="error-message" id="login-error"></div>
+                    </div>
+                    
+                    <div class="remember-forgot">
+                        <div class="remember-me">
+                            <input type="checkbox" id="remember-me">
+                            <label for="remember-me">Remember me</label>
+                        </div>
+                        <div class="forgot-password">
+                            <a href="#" id="forgot-password">Forgot password?</a>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-sign-in-alt"></i> Log-In
+                    </button>
+
+                    <!-- Social Login Section -->
+                    <div class="social-login">
+                        <p>Or sign in with</p>
+                        <div class="social-icons">
+                            <div class="social-icon facebook" onclick="socialLogin('facebook')">
+                                <i class="fab fa-facebook-f"></i>
+                            </div>
+                            <div class="social-icon google" onclick="socialLogin('google')">
+                                <i class="fab fa-google"></i>
+                            </div>
+                            <div class="social-icon linkedin" onclick="socialLogin('linkedin')">
+                                <i class="fab fa-linkedin-in"></i>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                
+                <div class="auth-footer">
+                    Don't have an account? <a href="#" id="switch-to-register">Sign Up</a>
+                </div>
+            </div>
+            
+            <!-- Registration Form -->
+            <div class="form-content" id="register-form">
+                <div class="auth-header">
+                    <h2>Create Account</h2>
+                    <p>Join our healthcare community today</p>
+                </div>
+                
+                <form id="registerForm">
+                    <div class="form-group">
+                        <label for="register-username">User Name</label>
+                        <input type="text" id="register-username" placeholder="Choose a username" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="register-email">Email</label>
+                        <input type="email" id="register-email" placeholder="Enter your email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="register-password">Password</label>
+                        <input type="password" id="register-password" placeholder="Create a password" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="register-confirm">Confirm Password</label>
+                        <input type="password" id="register-confirm" placeholder="Confirm your password" required>
+                        <div class="error-message" id="register-error"></div>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-user-plus"></i> Register
+                    </button>
+
+                    <!-- Social Login Section -->
+                    <div class="social-login">
+                        <p>Or sign up with</p>
+                        <div class="social-icons">
+                            <div class="social-icon facebook" onclick="socialLogin('facebook')">
+                                <i class="fab fa-facebook-f"></i>
+                            </div>
+                            <div class="social-icon google" onclick="socialLogin('google')">
+                                <i class="fab fa-google"></i>
+                            </div>
+                            <div class="social-icon linkedin" onclick="socialLogin('linkedin')">
+                                <i class="fab fa-linkedin-in"></i>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                
+                <div class="auth-footer">
+                    Already have an account? <a href="#" id="switch-to-login">Sign In</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Tab switching
+            const tabs = document.querySelectorAll('.auth-tab');
+            const forms = document.querySelectorAll('.form-content');
+            
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    // Remove active class from all tabs and forms
+                    tabs.forEach(t => t.classList.remove('active'));
+                    forms.forEach(f => f.classList.remove('active'));
+                    
+                    // Add active class to clicked tab and corresponding form
+                    this.classList.add('active');
+                    const tabId = this.getAttribute('data-tab');
+                    document.getElementById(`${tabId}-form`).classList.add('active');
+                });
+            });
+            
+            // Switch between login and register links
+            document.getElementById('switch-to-register').addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector('.auth-tab[data-tab="register"]').click();
+            });
+            
+            document.getElementById('switch-to-login').addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector('.auth-tab[data-tab="login"]').click();
+            });
+            
+            // Admin credentials (hidden from users)
+            const ADMIN_CREDENTIALS = {
+                username: 'admin',
+                password: 'admin'
+            };
+            
+            // Store registered users (in a real app, this would be server-side)
+            let registeredUsers = [];
+            
+            // Check if there are any saved users in localStorage
+            if (localStorage.getItem('registeredUsers')) {
+                registeredUsers = JSON.parse(localStorage.getItem('registeredUsers'));
+            }
+            
+            // Login form submission
+            document.getElementById('loginForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const username = document.getElementById('login-username').value;
+                const password = document.getElementById('login-password').value;
+                const errorElement = document.getElementById('login-error');
+                
+                // Clear previous errors
+                errorElement.style.display = 'none';
+                
+                // Check for admin login (hidden feature)
+                if (username === ADMIN_CREDENTIALS.username && password === ADMIN_CREDENTIALS.password) {
+                    // Successful admin login
+                    if (document.getElementById('remember-me').checked) {
+                        localStorage.setItem('rememberedUser', JSON.stringify({ username }));
+                    }
+                    window.location.href = 'index.html';
+                    return;
+                }
+                
+                // Validate regular user login
+                const user = registeredUsers.find(u => u.username === username && u.password === password);
+                
+                if (user) {
+                    // Successful login
+                    if (document.getElementById('remember-me').checked) {
+                        localStorage.setItem('rememberedUser', JSON.stringify({ username }));
+                    }
+                    window.location.href = 'index.html';
+                } else {
+                    errorElement.textContent = 'Invalid username or password';
+                    errorElement.style.display = 'block';
+                }
+            });
+            
+            // Registration form submission
+            document.getElementById('registerForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const username = document.getElementById('register-username').value;
+                const email = document.getElementById('register-email').value;
+                const password = document.getElementById('register-password').value;
+                const confirmPassword = document.getElementById('register-confirm').value;
+                const errorElement = document.getElementById('register-error');
+                
+                // Clear previous errors
+                errorElement.style.display = 'none';
+                
+                // Validate passwords match
+                if (password !== confirmPassword) {
+                    errorElement.textContent = 'Passwords do not match';
+                    errorElement.style.display = 'block';
+                    return;
+                }
+                
+                // Check if username already exists
+                if (registeredUsers.some(u => u.username === username)) {
+                    errorElement.textContent = 'Username already exists';
+                    errorElement.style.display = 'block';
+                    return;
+                }
+                
+                // Check if email already exists
+                if (registeredUsers.some(u => u.email === email)) {
+                    errorElement.textContent = 'Email already registered';
+                    errorElement.style.display = 'block';
+                    return;
+                }
+                
+                // Add new user
+                registeredUsers.push({
+                    username,
+                    email,
+                    password
+                });
+                
+                // Save to localStorage
+                localStorage.setItem('registeredUsers', JSON.stringify(registeredUsers));
+                
+                // Show success message and switch to login
+                alert('Registration successful! Please login with your new credentials.');
+                document.querySelector('.auth-tab[data-tab="login"]').click();
+                
+                // Clear form
+                document.getElementById('registerForm').reset();
+            });
+            
+            // Forgot password
+            document.getElementById('forgot-password').addEventListener('click', function(e) {
+                e.preventDefault();
+                const email = prompt('Please enter your email address to reset your password:');
+                if (email) {
+                    const user = registeredUsers.find(u => u.email === email);
+                    if (user) {
+                        alert(`Password reset link has been sent to ${email} (simulated)`);
+                    } else {
+                        alert('No account found with that email address');
+                    }
+                }
+            });
+            
+            // Social login function
+            window.socialLogin = function(provider) {
+                alert(`Sign in with ${provider} would be implemented here.\nIn a real app, this would redirect to ${provider} OAuth.`);
+                // In a real app, you would implement OAuth flow for the selected provider
+                // For demo purposes, we'll just redirect after a delay
+                setTimeout(() => {
+                    window.location.href = 'index.html';
+                }, 1000);
+            };
+            
+            // Check for remembered user
+            const rememberedUser = localStorage.getItem('rememberedUser');
+            if (rememberedUser) {
+                const user = JSON.parse(rememberedUser);
+                document.getElementById('login-username').value = user.username;
+                document.getElementById('remember-me').checked = true;
+            }
+        });
+    </script>
+</body>
+</html>

@@ -613,6 +613,14 @@
             confirmDelete.addEventListener('click', deleteAppointment);
         });
 
+
+
+
+
+
+
+
+        
         // Load appointments from the server
         function loadAppointments(searchTerm = '', searchType = 'name', statusFilter = '') {
             const url = new URL('http://localhost/mydb/get_appointments.php');
@@ -826,11 +834,24 @@ function openEditModal(appointmentId) {
     editModal.style.display = 'flex';
     const modalContent = editModal.querySelector('.modal-content');
     modalContent.innerHTML = `
-        <div style="text-align: center; padding: 40px;">
+        <div style="text-align: center; padding: 40px;">SELECT * FROM appointments
+WHERE Doctor = 'Dr. Sudhakar Chandran Bose';
+
             <i class="fas fa-spinner fa-spin" style="font-size: 24px;"></i>
             <p>Loading appointment details...</p>
         </div>
     `;
+
+
+
+
+
+
+
+
+
+
+
 
     // Fetch complete appointment data from server
     fetch(`http://localhost/mydb/get_appointments.php?id=${appointmentId}`)
@@ -1020,6 +1041,16 @@ function escapeHtml(unsafe) {
         return;
     }
 
+
+
+
+
+
+
+
+
+
+
     // Send to server
     fetch('http://localhost/mydb/update_appointment.php', {
         method: 'POST',
@@ -1053,6 +1084,24 @@ function escapeHtml(unsafe) {
         resetSaveButton(saveBtn, originalBtnText);
     });
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Helper function to reset button state
 function resetSaveButton(button, originalText) {
@@ -1117,7 +1166,13 @@ function showAlert(message, type = 'error') {
         function deleteAppointment() {
     const deleteBtn = document.getElementById('confirmDelete');
     const originalBtnText = deleteBtn.textContent;
+
     
+
+
+
+
+
     // Set loading state
     deleteBtn.disabled = true;
     deleteBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Deleting...';
@@ -1149,6 +1204,19 @@ function showAlert(message, type = 'error') {
         deleteBtn.textContent = originalBtnText;
     });
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 function showAlert(message, type = 'error') {
     // Remove any existing alerts first
