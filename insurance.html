@@ -422,7 +422,6 @@
         </div>
 
         <form id="insuranceForm" class="insurance-form">
-            <!-- Personal Information Section -->
             <h3 class="section-title">Personal Information</h3>
 
             <div class="form-group">
@@ -486,7 +485,6 @@
                 </select>
             </div>
 
-            <!-- Address Information -->
             <h3 class="section-title">Address Information</h3>
 
             <div class="form-group full-width">
@@ -522,7 +520,6 @@
                 </select>
             </div>
 
-            <!-- Policy Information -->
             <h3 class="section-title">Policy Selection</h3>
 
             <div class="form-group full-width">
@@ -560,7 +557,6 @@
                 </div>
             </div>
 
-            <!-- Family Members -->
             <h3 class="section-title">Family Members to Include</h3>
 
             <div id="familyMembersContainer" class="family-members">
@@ -589,7 +585,6 @@
                 <i class="fas fa-plus"></i> Add Family Member
             </button>
 
-            <!-- Medical Information -->
             <h3 class="section-title">Health Information</h3>
 
             <div class="form-group">
@@ -635,7 +630,6 @@
                     placeholder="List any known allergies (drug, food, environmental)..."></textarea>
             </div>
 
-            <!-- Lifestyle Information -->
             <h3 class="section-title">Lifestyle Information</h3>
 
             <div class="form-group">
@@ -669,7 +663,6 @@
                 </select>
             </div>
 
-            <!-- Emergency Contact -->
             <h3 class="section-title">Emergency Contact</h3>
 
             <div class="form-group">
@@ -695,7 +688,6 @@
                 <input type="tel" id="emergencyPhone" name="emergencyPhone" required>
             </div>
 
-            <!-- Payment Information -->
             <h3 class="section-title">Payment Information</h3>
 
             <div class="form-group">
@@ -719,7 +711,6 @@
                 </select>
             </div>
 
-            <!-- Terms and Conditions -->
             <div class="form-group full-width" style="margin-top: 20px;">
                 <div class="input-wrapper">
                     <input type="checkbox" id="terms" name="terms" required
@@ -741,8 +732,7 @@
             <p>Your health insurance application has been received. Our team will review your information and contact
                 you within 2 business days.</p>
             <div class="policy-details" id="policyDetails">
-                <!-- Filled by JavaScript -->
-            </div>
+                </div>
             <a href="index.html" class="btn-submit" style="margin-top: 30px; text-decoration: none;">
                 <i class="fas fa-home"></i> Return to Home
             </a>
@@ -878,54 +868,71 @@
                     });
                 }
 
-                // In a real app, you would send this data to your server here
-                console.log('Form data:', formData);
+                // Send data to PHP backend
+                fetch('http://localhost/mydb/add_insurance.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData)
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Success:', data);
+                    if (data.status === 'success') {
+                        // Hide form and show confirmation
+                        form.style.display = 'none';
+                        confirmation.style.display = 'block';
 
-                // Hide form and show confirmation
-                form.style.display = 'none';
-                confirmation.style.display = 'block';
+                        // Format dates
+                        const dobDate = new Date(formData.personalInfo.dob);
+                        const formattedDob = dobDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
 
-                // Format dates
-                const dobDate = new Date(formData.personalInfo.dob);
-                const formattedDob = dobDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+                        const startDate = new Date(formData.policy.startDate);
+                        const formattedStart = startDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
 
-                const startDate = new Date(formData.policy.startDate);
-                const formattedStart = startDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+                        // Get policy details
+                        let policyName = '';
+                        let policyPrice = '';
 
-                // Get policy details
-                let policyName = '';
-                let policyPrice = '';
+                        switch (formData.policy.type) {
+                            case 'basic':
+                                policyName = 'Basic Health Plan';
+                                policyPrice = '৳3,500/month';
+                                break;
+                            case 'standard':
+                                policyName = 'Standard Health Plan';
+                                policyPrice = '৳6,000/month';
+                                break;
+                            case 'premium':
+                                policyName = 'Premium Health Plan';
+                                policyPrice = '৳9,500/month';
+                                break;
+                        }
 
-                switch (formData.policy.type) {
-                    case 'basic':
-                        policyName = 'Basic Health Plan';
-                        policyPrice = '৳3,500/month';
-                        break;
-                    case 'standard':
-                        policyName = 'Standard Health Plan';
-                        policyPrice = '৳6,000/month';
-                        break;
-                    case 'premium':
-                        policyName = 'Premium Health Plan';
-                        policyPrice = '৳9,500/month';
-                        break;
-                }
+                        // Display policy details
+                        policyDetails.innerHTML = `
+                            <p><strong>Applicant:</strong> ${formData.personalInfo.fullName}</p>
+                            <p><strong>Date of Birth:</strong> ${formattedDob}</p>
+                            <p><strong>Health Plan:</strong> ${policyName}</p>
+                            <p><strong>Monthly Premium:</strong> ${policyPrice}</p>
+                            <p><strong>Coverage Start:</strong> ${formattedStart}</p>
+                            <p><strong>Family Members:</strong> ${formData.familyMembers.length}</p>
+                            <p><strong>Emergency Contact:</strong> ${formData.emergencyContact.name} (${formData.emergencyContact.relationship})</p>
+                        `;
 
-                // Display policy details
-                policyDetails.innerHTML = `
-                    <p><strong>Applicant:</strong> ${formData.personalInfo.fullName}</p>
-                    <p><strong>Date of Birth:</strong> ${formattedDob}</p>
-                    <p><strong>Health Plan:</strong> ${policyName}</p>
-                    <p><strong>Monthly Premium:</strong> ${policyPrice}</p>
-                    <p><strong>Coverage Start:</strong> ${formattedStart}</p>
-                    <p><strong>Family Members:</strong> ${formData.familyMembers.length}</p>
-                    <p><strong>Emergency Contact:</strong> ${formData.emergencyContact.name} (${formData.emergencyContact.relationship})</p>
-                `;
-
-                // Scroll to confirmation
-                window.scrollTo({
-                    top: confirmation.offsetTop - 20,
-                    behavior: 'smooth'
+                        // Scroll to confirmation
+                        window.scrollTo({
+                            top: confirmation.offsetTop - 20,
+                            behavior: 'smooth'
+                        });
+                    } else {
+                        alert("There was an issue saving your application: " + data.message);
+                    }
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                    alert("Network error. Please try again.");
                 });
             });
 
